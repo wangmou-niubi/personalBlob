@@ -1,0 +1,195 @@
+$color-shadow: #babecc;
+#blob-container {
+  width: 100%;
+  overflow: hidden;
+  font-family: '楷体';
+
+  .bg-img {
+    position: fixed;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: url('https://t.mwm.moe/fj') no-repeat;
+    background-size: 100% 100%;
+    background-attachment: fixed;
+  }
+
+  .f2d-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 100;
+    pointer-events: none;
+  }
+
+  .blob-layout {
+    overflow: hidden;
+    width: 100vw;
+    padding: 0 40px;
+    position: relative;
+    z-index: 2;
+
+    .blob-scroller {
+      margin: 1px 0 0 0;
+      display: block;
+      z-index: 1000;
+      width: 100vw;
+      border-top: 4px solid;
+      border-image: linear-gradient(to right, #8f41e9, #578aef) 1;
+      animation-name: widthExpand;
+      animation-duration: 1ms;
+      /* Firefox需要设置这个*/
+      animation-timeline: scroll();
+      position: fixed;
+      height: 3px;
+      left: 0;
+      top: 0;
+
+      &::before {
+        content: '';
+
+      }
+    }
+
+    .blob-header {
+      position: fixed;
+      display: flex;
+      flex-direction: row;
+      z-index: 100;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 8vh;
+      background-color: rgba(255, 255, 255, 0.8);
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+
+      transition: all 0.3s ease;
+
+      .blob-signature {
+        img {
+          width: 200px;
+          height: 70px;
+        }
+      }
+    }
+
+    .blob-content {
+      width: 100%;
+      height: 100%;
+      background-color: rgba(255, 255, 255, 0.3);
+      filter: blur(2px);
+      display: flex;
+      border: 1px solid #fff;
+      box-shadow: $color-shadow 0 0 10px;
+      border-radius: 4px;
+      flex-direction: row;
+      justify-content: space-between;
+
+      .left-content {
+        width: 10%;
+        height: 100%;
+        background-image: linear-gradient(120deg, #d4fc79 0%, #96e6a1 100%);
+      }
+
+      .middle-content {
+        width: 80%;
+        height: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+
+        .blob-each-content {
+          width: 800px;
+          height: 2000px;
+
+        }
+      }
+
+      .right-content {
+        width: 10%;
+        height: 100%;
+        background-image: linear-gradient(120deg, #d4fc79 0%, #96e6a1 100%);
+      }
+    }
+
+    .blob-footer {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 8vh;
+      background: #578aef;
+    }
+  }
+
+  .action-button-list {
+    position: fixed;
+    bottom: 20px;
+    right: 10px;
+    width: 100px;
+    height: 200px;
+
+    .each-tool {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      color: #fecfef;
+      width: 20px;
+      height: 20px;
+      border: #ff9a9e solid 2px;
+      border-radius: 100%;
+    }
+
+    .each-tool:hover {
+      cursor: pointer;
+    }
+
+    z-index: 101;
+  }
+}
+
+@keyframes widthExpand {
+  from {
+    width: 0%;
+  }
+
+  to {
+    width: 100%;
+  }
+}
+
+canvas {
+  background: transparent !important;
+  /* 确保 canvas 背景透明 */
+  pointer-events: none;
+}
+.art-content{
+  width: 100%;
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.typing {
+  width: 15em;
+  white-space: nowrap;
+  border-right: 2px solid transparent;
+  animation: typing 3.5s steps(15, end), blink-caret .75s step-end infinite;
+  overflow: hidden;
+}
+/* 打印效果 */
+@keyframes typing {
+from { width: 0; }
+to { width: 15em; }
+}
+/* 光标闪啊闪 */
+@keyframes blink-caret {
+from, to { box-shadow: 1px 0 0 0 transparent; }
+50% { box-shadow: 1px 0 0 0; }
+}

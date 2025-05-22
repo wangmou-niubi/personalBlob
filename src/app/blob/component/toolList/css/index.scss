@@ -1,0 +1,32 @@
+.back-to-top {
+  cursor: pointer;
+  transition: transform 0.2s;
+  
+  &:hover {
+    transform: translateY(-3px);
+  }
+  
+  .anticon {
+    font-size: 24px;
+    color: #1890ff;
+  }
+}
+
+.each-tool {
+  position: fixed;
+  right: 40px;
+  bottom: 40px;
+  z-index: 1000;
+  background: rgba(255,255,255,0.9);
+  border-radius: 50%;
+  padding: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  
+  &.visible {
+    pointer-events: auto;
+  }
+  
+  &:not(.visible) {
+    pointer-events: none;
+  }
+}

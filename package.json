@@ -9,8 +9,14 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "gsap": "^3.12.7",
+    "lodash": "^4.17.21",
+    "next": "15.2.2",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "next": "15.2.2"
+    "rxjs": "^7.8.2",
+    "sass": "^1.85.1",
+    "scss": "^0.2.4",
+    "three": "^0.174.0"
   }
 }
