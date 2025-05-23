@@ -17,7 +17,7 @@ async function getData() {
 }
 
 // 添加元数据配置
-export const metadata = {
+const metadata = {
   title: '关于我 | 前端开发工程师',
   description: '专注于前端开发的技术博主，擅长 React、Next.js、TypeScript 等技术栈',
   keywords: ['前端开发', 'React', 'Next.js', 'JavaScript', '技术博客'],
