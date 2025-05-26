@@ -1,20 +1,7 @@
 import Link from 'next/link';
 import styles from './about.module.css';
-import { Metadata } from 'next';
 
-// 获取数据的服务端函数
-async function getData() {
-  // 在服务端获取数据
-  const res = await fetch('http://localhost:3000/api/about', {
-    cache: 'no-store' // 禁用缓存，保持数据实时性
-  });
-  
-  if (!res.ok) {
-    throw new Error('Failed to fetch data');
-  }
-  
-  return res.json();
-}
+
 
 // 添加元数据配置
 const metadata = {

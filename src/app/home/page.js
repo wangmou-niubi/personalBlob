@@ -65,7 +65,7 @@ const Home = (props) => {
                                 </div>
 
                                 <div className={'translate-title translate-font'} style={{'--translatevar':'100px'}}>
-                                    <Link ></Link>
+                                    {/* <Link ></Link> */}
                                 </div>
                             </div>
                         </div>
