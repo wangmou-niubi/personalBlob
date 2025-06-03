@@ -45,16 +45,11 @@ export default function FaceDetection() {
       const canvas = canvasRef.current;
       const ctx = canvas.getContext('2d');
 
-      // 确保视频已经准备好
       if (video.readyState === video.HAVE_ENOUGH_DATA) {
-        // 设置画布尺寸
         canvas.width = video.videoWidth;
         canvas.height = video.videoHeight;
-
-        // 绘制当前视频帧
         ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
 
-        // 人脸检测
         const src = cv.imread(canvas);
         const gray = new cv.Mat();
         cv.cvtColor(src, gray, cv.COLOR_RGBA2GRAY);
@@ -62,23 +57,27 @@ export default function FaceDetection() {
         const faces = new cv.RectVector();
         faceCascade.detectMultiScale(gray, faces);
 
-        // 绘制检测框
+        // 添加特效 - 红色矩形
         for (let i = 0; i < faces.size(); ++i) {
           const face = faces.get(i);
           const point1 = new cv.Point(face.x, face.y);
           const point2 = new cv.Point(face.x + face.width, face.y + face.height);
-          cv.rectangle(src, point1, point2, [255, 0, 0, 255], 2);
+
+          // 绘制红色矩形
+          cv.rectangle(src, point1, point2, [255, 0, 0, 255], 3);
+
+          // 添加特效 - 在矩形上方添加文字
+          const textPoint = new cv.Point(face.x, face.y - 10);
+          cv.putText(src, 'Face', textPoint, cv.FONT_HERSHEY_SIMPLEX, 0.8, [255, 0, 0, 255], 2);
         }
 
         cv.imshow(canvas, src);
 
-        // 释放内存
         src.delete();
         gray.delete();
         faces.delete();
       }
 
-      // 请求下一帧
       animationFrameId = requestAnimationFrame(processVideo);
     }
 
