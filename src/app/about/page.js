@@ -56,7 +56,7 @@ export default async function About() {
       </header>
 
       <section className={styles.profile} itemScope itemType="http://schema.org/Person">
-        <div className={styles.info}>
+        <div className={nastyles.info}>
           <h2>个人简介</h2>
           <p itemProp="description">{data.profile}</p>
           <ul className={styles.skills} itemProp="knowsAbout">
