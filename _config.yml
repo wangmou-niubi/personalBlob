@@ -1,0 +1,52 @@
+# 基本设置
+title: Personal Blog
+description: My personal website and blog
+url: "https://wangmou-niubi.github.io/" # 您的网站URL
+baseurl: "/personalBlob" # 如果您的网站托管在子目录中，请在此处指定
+
+# 构建设置
+markdown: kramdown
+
+# 不排除任何文件或目录
+include:
+  - "_*"
+  - ".htaccess"
+  - ".nojekyll"
+  - "node_modules"
+  - "*.json"
+  - "*.js"
+  - "*.jsx"
+  - "*.ts"
+  - "*.tsx"
+  - "*.css"
+  - "*.scss"
+  - "*.html"
+  - "*.md"
+  - "*.svg"
+  - "*.png"
+  - "*.jpg"
+  - "*.jpeg"
+  - "*.gif"
+  - "*.webp"
+  - "*.pdf"
+  - "*.xml"
+
+# 确保不使用默认排除
+exclude: []
+
+# 保留所有文件夹，包括以下划线开头的文件夹
+keep_files:
+  - ".git"
+  - ".github"
+  - "node_modules"
+  - "_next"
+
+# 禁用Jekyll的默认清理过程
+clean: false
+
+# 允许所有插件
+whitelist: []
+plugins: []
+
+# 禁用Jekyll的默认安全限制
+safe: false
